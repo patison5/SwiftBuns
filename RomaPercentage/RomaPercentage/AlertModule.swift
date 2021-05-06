@@ -11,6 +11,7 @@ class AlertModule {
 
 	// MARK: - Public properties
 
+	/// Единственный экземпляр доступа к AlertModule
 	static var shared: AlertModule = {
 		let alert = AlertModule()
 		return alert
@@ -20,10 +21,10 @@ class AlertModule {
 
 	private var controller: UIViewController?
 	private var target: UIView?
-	let triangleShapeLayer = CAShapeLayer()
+	private let triangleShapeLayer = CAShapeLayer()
 
-	let localWidth = 250.0
-	let localHeight = 110.0
+	private let localWidth = 250.0
+	private let localHeight = 110.0
 
 	private var alertTopAnchor: NSLayoutConstraint?
 	private var whiteBackgroundTopAnchor: NSLayoutConstraint?
@@ -74,6 +75,12 @@ class AlertModule {
 
 	// MARK: - Public methods
 
+	/// Настройка модуля подсказки
+	/// - Parameters:
+	///   - container: Родительский контейнер
+	///   - target: Объект описания
+	///   - title: Заголовок сообщения
+	///   - message: Текст сообщения
 	public func setup(container: UIViewController, target: UIView, title: String, message: String) {
 		self.controller = container
 		self.target = target
@@ -81,8 +88,8 @@ class AlertModule {
 		self.messageLabel.text = message
 	}
 
+	/// Отобразить окно подсказки
 	public func showAlert() {
-		//	snapshot
 		addViews()
 		setupViews()
 	}
@@ -202,20 +209,8 @@ extension AlertModule {
 			trianglePath.addLine(to: CGPoint(x: x + width, y: y)) // right point
 			trianglePath.addLine(to: CGPoint(x: x + width / 2, y: y + height)) // center point
 		}
+
 		trianglePath.close()
 		return trianglePath
-	}
-}
-
-extension UIView {
-
-	func takeScreenShoot() -> UIImage {
-		UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
-		drawHierarchy(in: self.bounds, afterScreenUpdates: true)
-		let img = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-
-		guard let image = img else { return UIImage() }
-		return image
 	}
 }

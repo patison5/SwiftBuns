@@ -12,6 +12,7 @@
 		9F409BD0264302110050903C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F409BCF264302110050903C /* Assets.xcassets */; };
 		9F409BD3264302110050903C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F409BD1264302110050903C /* LaunchScreen.storyboard */; };
 		9F409BDE264306410050903C /* AlertModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F409BDD264306410050903C /* AlertModule.swift */; };
+		9F60F53826446087000122D2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F60F53726446087000122D2 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9F409BD2264302110050903C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F409BD4264302110050903C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F409BDD264306410050903C /* AlertModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModule.swift; sourceTree = "<group>"; };
+		9F60F53726446087000122D2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				9F409BC6264302090050903C /* AppDelegate.swift */,
 				9F409BCA264302090050903C /* ViewController.swift */,
 				9F409BDD264306410050903C /* AlertModule.swift */,
+				9F60F53726446087000122D2 /* UIView+Extension.swift */,
 				9F409BCF264302110050903C /* Assets.xcassets */,
 				9F409BD1264302110050903C /* LaunchScreen.storyboard */,
 				9F409BD4264302110050903C /* Info.plist */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F60F53826446087000122D2 /* UIView+Extension.swift in Sources */,
 				9F409BDE264306410050903C /* AlertModule.swift in Sources */,
 				9F409BCB264302090050903C /* ViewController.swift in Sources */,
 				9F409BC7264302090050903C /* AppDelegate.swift in Sources */,
