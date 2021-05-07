@@ -43,13 +43,11 @@ final class TutorialCenter {
 
 	private let titleLabel: UILabel = {
 		let title = UILabel()
-		title.text = "hello bitch"
 		return title
 	}()
 
 	private let messageLabel: UILabel = {
 		let message = UILabel()
-		message.text = "fuck you, motherfucker"
 		message.textColor = .black
 		message.numberOfLines = 0
 		message.textAlignment = .center
@@ -77,23 +75,25 @@ extension TutorialCenter: TutorialCenterProtocol {
 		setupUserInterface()
 		setupConstraints()
 
-		UIView.transition(with: darkBackground,
-						  duration: 0.5,
-						  options: [.transitionCrossDissolve],
-						  animations: {},
-						  completion: nil)
+		self.darkBackground.isHidden = true
+		self.alertContainer.isHidden = true
+		self.targetImageView.isHidden = true
 
-		UIView.transition(with: alertContainer,
-						  duration: 0.5,
-						  options: [.transitionCrossDissolve],
-						  animations: {},
-						  completion: nil)
+		self.setViewAnimation(view: self.darkBackground, hidden: false)
+		self.setViewAnimation(view: self.alertContainer, hidden: false)
+		self.setViewAnimation(view: self.targetImageView, hidden: false)
 	}
 }
 
 // MARK: - Private methods
 
 private extension TutorialCenter {
+
+	func setViewAnimation(view: UIView, hidden: Bool) {
+		UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+			view.isHidden = hidden
+		})
+	}
 
 	func setupUserInterface() {
 		container?.addSubview(darkBackground)
@@ -154,7 +154,14 @@ private extension TutorialCenter {
 		alertContainer.layer.addSublayer(triangleShapeLayer)
 
 		darkBackground.completion = { [weak self] in
-			[self?.alertContainer, self?.targetImageView, self?.darkBackground, self?.whiteBackground, self?.messageLabel, self?.titleLabel].compactMap { $0 }.forEach {
+			guard let self = self else { return }
+
+			self.setViewAnimation(view: self.darkBackground, hidden: true)
+			self.setViewAnimation(view: self.alertContainer, hidden: true)
+			self.setViewAnimation(view: self.targetImageView, hidden: true)
+
+			// Возможно эти строки влияют на конечную анимацию...
+			[self.alertContainer, self.targetImageView, self.darkBackground, self.whiteBackground, self.messageLabel, self.titleLabel].compactMap { $0 }.forEach {
 				$0.removeFromSuperview()
 			}
 		}
