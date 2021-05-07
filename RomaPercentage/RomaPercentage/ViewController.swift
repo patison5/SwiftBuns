@@ -85,6 +85,9 @@ class ViewController: UIViewController {
 
 	@objc func whiteAction(sender : UITapGestureRecognizer) {
 		TutorialCenter.shared.showAlert(container: view, target: whiteView, title: "hello 3", message: "hey white bitches!")
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+			TutorialCenter.shared.closeAlert()
+		}
 	}
 
 	// MARK: - Private methods

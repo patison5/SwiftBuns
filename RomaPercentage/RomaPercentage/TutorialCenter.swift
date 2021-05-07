@@ -75,13 +75,23 @@ extension TutorialCenter: TutorialCenterProtocol {
 		setupUserInterface()
 		setupConstraints()
 
-		self.darkBackground.isHidden = true
-		self.alertContainer.isHidden = true
-		self.targetImageView.isHidden = true
+		self.darkBackground.alpha = 0
+		self.alertContainer.alpha = 0
+		self.targetImageView.alpha = 0
 
 		self.setViewAnimation(view: self.darkBackground, hidden: false)
 		self.setViewAnimation(view: self.alertContainer, hidden: false)
 		self.setViewAnimation(view: self.targetImageView, hidden: false)
+	}
+
+	func closeAlert() {
+		setViewAnimation(view: darkBackground, hidden: true)
+		setViewAnimation(view: alertContainer, hidden: true)
+		setViewAnimation(view: targetImageView, hidden: true)
+
+		[whiteBackground, messageLabel, titleLabel].compactMap { $0 }.forEach {
+			$0.removeFromSuperview()
+		}
 	}
 }
 
@@ -91,7 +101,16 @@ private extension TutorialCenter {
 
 	func setViewAnimation(view: UIView, hidden: Bool) {
 		UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-			view.isHidden = hidden
+			if hidden {
+				view.alpha = 0
+			} else {
+				view.alpha = 1
+			}
+		}, completion: {
+			_ in
+			if hidden {
+				view.removeFromSuperview()
+			}
 		})
 	}
 
@@ -161,7 +180,7 @@ private extension TutorialCenter {
 			self.setViewAnimation(view: self.targetImageView, hidden: true)
 
 			// Возможно эти строки влияют на конечную анимацию...
-			[self.alertContainer, self.targetImageView, self.darkBackground, self.whiteBackground, self.messageLabel, self.titleLabel].compactMap { $0 }.forEach {
+			[self.whiteBackground, self.messageLabel, self.titleLabel].compactMap { $0 }.forEach {
 				$0.removeFromSuperview()
 			}
 		}

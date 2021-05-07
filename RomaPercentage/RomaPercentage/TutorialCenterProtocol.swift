@@ -20,4 +20,7 @@ protocol TutorialCenterProtocol {
 	///   - title: Заголовок сообщения
 	///   - message: Текст сообщения
 	func showAlert(container: UIView, target: UIView, title: String, message: String)
+
+	/// Принудительное закрытие алерта
+	func closeAlert()
 }
