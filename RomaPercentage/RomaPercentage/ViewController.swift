@@ -19,7 +19,6 @@ class ViewController: UIViewController {
 
 	private let blueView: UIView = {
 		let view = UIView()
-//		view.layer.cornerRadius = 160
 		view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
 		view.backgroundColor = .blue
 		return view
@@ -35,8 +34,8 @@ class ViewController: UIViewController {
 		let text = UILabel()
 		text.text = "Putin"
 		text.textAlignment = .center
-		text.backgroundColor = .green
-		text.textColor = .black
+//		text.backgroundColor = .green
+		text.textColor = .white
 		return text
 	}()
 
@@ -44,8 +43,8 @@ class ViewController: UIViewController {
 		let text = UILabel()
 		text.text = "Fuck you"
 		text.textAlignment = .center
-		text.backgroundColor = .green
-		text.textColor = .black
+//		text.backgroundColor = .green
+		text.textColor = .white
 		return text
 	}()
 
@@ -73,25 +72,19 @@ class ViewController: UIViewController {
 	}
 
 	@objc func redAction(sender : UITapGestureRecognizer) {
-		AlertModule.shared.setup(container: self, target: redView, title: "hello 1", message: "hey red bitches!")
-		AlertModule.shared.showAlert()
+		TutorialCenter.shared.showAlert(container: view, target: redView, title: "hello 1", message: "hey red bitches!")
 	}
 
 	@objc func blueAction(sender : UITapGestureRecognizer) {
-		print("wtf2")
-		AlertModule.shared.setup(container: self, target: blueLabel, title: "hello 2", message: "hey blue bitches!")
-		AlertModule.shared.showAlert()
+		TutorialCenter.shared.showAlert(container: view, target: blueLabel, title: "hello 2", message: "hey blue bitches!")
 	}
 
 	@objc func blueAction2(sender : UITapGestureRecognizer) {
-		print("wtf")
-		AlertModule.shared.setup(container: self, target: blueLabel2, title: "hello 2", message: "hey blue bitches!")
-		AlertModule.shared.showAlert()
+		TutorialCenter.shared.showAlert(container: view, target: blueLabel2, title: "hello 2", message: "hey blue bitches!")
 	}
 
 	@objc func whiteAction(sender : UITapGestureRecognizer) {
-		AlertModule.shared.setup(container: self, target: whiteView, title: "hello 3", message: "hey white bitches!")
-		AlertModule.shared.showAlert()
+		TutorialCenter.shared.showAlert(container: view, target: whiteView, title: "hello 3", message: "hey white bitches!")
 	}
 
 	// MARK: - Private methods
@@ -99,9 +92,12 @@ class ViewController: UIViewController {
 	private func addViews() {
 		[whiteView, blueView, redView].forEach {
 			view.addSubview($0)
-			$0.translatesAutoresizingMaskIntoConstraints = false
+//			$0.translatesAutoresizingMaskIntoConstraints = false
 		}
 
+		whiteView.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
+		blueView.frame = CGRect(x: 40, y: 300, width: 200, height: 100)
+		redView.frame = CGRect(x: 80, y: 500, width: 200, height: 100)
 		blueView.addSubview(blueLabel)
 		blueLabel.frame = .init(x: 30, y: 50, width: 100, height: 50)
 		blueLabel.translatesAutoresizingMaskIntoConstraints = true
@@ -113,20 +109,20 @@ class ViewController: UIViewController {
 
 	private func setupViews() {
 		NSLayoutConstraint.activate([
-			whiteView.topAnchor.constraint(equalTo: view.topAnchor),
-			whiteView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
-			whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-			blueView.topAnchor.constraint(equalTo: whiteView.bottomAnchor),
-			blueView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
-			blueView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-			redView.topAnchor.constraint(equalTo: blueView.bottomAnchor),
-			redView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
-			redView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			redView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+//			whiteView.topAnchor.constraint(equalTo: view.topAnchor),
+//			whiteView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
+//			whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//			whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//
+//			blueView.topAnchor.constraint(equalTo: whiteView.bottomAnchor),
+//			blueView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
+//			blueView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//			blueView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//
+//			redView.topAnchor.constraint(equalTo: blueView.bottomAnchor),
+//			redView.heightAnchor.constraint(equalToConstant: view.bounds.height / 3),
+//			redView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//			redView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
 	}
 }
