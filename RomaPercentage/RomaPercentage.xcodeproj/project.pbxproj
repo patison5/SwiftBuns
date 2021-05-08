@@ -14,6 +14,7 @@
 		9F409BDE264306410050903C /* TutorialCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F409BDD264306410050903C /* TutorialCenter.swift */; };
 		9F60F53826446087000122D2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F60F53726446087000122D2 /* UIView+Extension.swift */; };
 		9F60F53E2645BB82000122D2 /* TutorialCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F60F53D2645BB82000122D2 /* TutorialCenterProtocol.swift */; };
+		9F60F5422646C4E2000122D2 /* TCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F60F5412646C4E2000122D2 /* TCenterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9F409BDD264306410050903C /* TutorialCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenter.swift; sourceTree = "<group>"; };
 		9F60F53726446087000122D2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9F60F53D2645BB82000122D2 /* TutorialCenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCenterProtocol.swift; sourceTree = "<group>"; };
+		9F60F5412646C4E2000122D2 /* TCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCenterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				9F409BC6264302090050903C /* AppDelegate.swift */,
 				9F409BCA264302090050903C /* ViewController.swift */,
+				9F60F5412646C4E2000122D2 /* TCenterViewController.swift */,
 				9F409BDD264306410050903C /* TutorialCenter.swift */,
 				9F60F53D2645BB82000122D2 /* TutorialCenterProtocol.swift */,
 				9F60F53726446087000122D2 /* UIView+Extension.swift */,
@@ -143,6 +146,7 @@
 				9F409BDE264306410050903C /* TutorialCenter.swift in Sources */,
 				9F409BCB264302090050903C /* ViewController.swift in Sources */,
 				9F60F53E2645BB82000122D2 /* TutorialCenterProtocol.swift in Sources */,
+				9F60F5422646C4E2000122D2 /* TCenterViewController.swift in Sources */,
 				9F409BC7264302090050903C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

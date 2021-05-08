@@ -43,6 +43,8 @@ final class TutorialCenter {
 
 	private let titleLabel: UILabel = {
 		let title = UILabel()
+		title.text = "title"
+		title.textAlignment = .center
 		return title
 	}()
 
@@ -121,8 +123,9 @@ private extension TutorialCenter {
 		container?.addSubview(alertContainer)
 		alertContainer.addSubview(whiteBackground)
 		whiteBackground.addSubview(messageLabel)
+		alertContainer.addSubview(titleLabel)
 
-		[alertContainer, whiteBackground, messageLabel].forEach {
+		[alertContainer, whiteBackground, messageLabel, titleLabel].forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
 		}
 	}
@@ -146,10 +149,14 @@ private extension TutorialCenter {
 			whiteBackground.topAnchor.constraint(equalTo: alertContainer.topAnchor, constant: 10),
 			whiteBackground.bottomAnchor.constraint(equalTo: alertContainer.bottomAnchor, constant: -10),
 
+			titleLabel.leadingAnchor.constraint(equalTo: whiteBackground.leadingAnchor, constant: 10),
+			titleLabel.trailingAnchor.constraint(equalTo: whiteBackground.trailingAnchor, constant: 10),
+			titleLabel.topAnchor.constraint(equalTo: whiteBackground.topAnchor, constant: 22),
+
 			messageLabel.leadingAnchor.constraint(equalTo: whiteBackground.leadingAnchor, constant: 10),
 			messageLabel.trailingAnchor.constraint(equalTo: whiteBackground.trailingAnchor, constant: -10),
-			messageLabel.topAnchor.constraint(equalTo: whiteBackground.topAnchor, constant: 32),
-			messageLabel.bottomAnchor.constraint(equalTo: whiteBackground.bottomAnchor, constant: -32),
+			messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+			messageLabel.bottomAnchor.constraint(equalTo: whiteBackground.bottomAnchor, constant: -22),
 		])
 
 		let triangleOnTop = target.frame.origin.y + target.frame.height + minimumHeight > controllerView.bounds.height
